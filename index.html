@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function computerPlay() {
+                let randomNumber = Math.floor(Math.random() * 3);
+                switch (randomNumber) {
+                    case (0): return "Rock";
+                    break;
+
+                    case (1): return "Paper";
+                    break;
+
+                    case (2): return "Sciccors";
+                    break;
+                }  
+            }
+            function playRound(playerSelection, computerSelection) {
+                playerSelection = playerSelection.toLowerCase();
+                if (playerSelection == computerSelection) {
+                    return `You both picked ${playerSelection}, it's a draw!`;
+                }
+                if (playerSelection == "rock") {
+                    switch (computerSelection) {
+                        case("paper"): return `You lost.. ${computerSelection} beats ${playerSelection}.`;
+                                     break;
+                        case("sciccors"): return `Congratulations, you won! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}!`;
+                                        break;
+                    }
+                }
+                if (playerSelection == "paper") {
+                    switch (computerSelection) {
+                        case("sciccors"): return `You lost.. ${computerSelection} beats ${playerSelection}.`;
+                                     break;
+                        case("rock"): return `Congratulations, you won! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}!`;
+                                        break;
+                    }
+                }
+                if (playerSelection == "sciccors") {
+                    switch (computerSelection) {
+                        case("rock"): return `You lost.. ${computerSelection} beats ${playerSelection}.`;
+                                     break;
+                        case("Ppaper"): return `Congratulations, you won! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}!`;
+                                        break;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
