@@ -2,49 +2,116 @@
 <html>
     <body>
         <script>
+            let playerScore;
+            let computerScore;
+            let playerSelection;
+            let computerSelection
             function computerPlay() {
                 let randomNumber = Math.floor(Math.random() * 3);
                 switch (randomNumber) {
-                    case (0): return "Rock";
+                    case (0): computerSelection = "rock";
                     break;
 
-                    case (1): return "Paper";
+                    case (1): computerSelection = "paper";
                     break;
 
-                    case (2): return "Sciccors";
+                    case (2): computerSelection = "sciccors";
                     break;
                 }  
             }
             function playRound(playerSelection, computerSelection) {
-                playerSelection = playerSelection.toLowerCase();
                 if (playerSelection == computerSelection) {
-                    return `You both picked ${playerSelection}, it's a draw!`;
+                    computerScore += 1;
+                    playerScore += 1;
+                    console.log(`You both picked ${playerSelection}, it's a draw!`);
                 }
                 if (playerSelection == "rock") {
                     switch (computerSelection) {
-                        case("paper"): return `You lost.. ${computerSelection} beats ${playerSelection}.`;
-                                     break;
-                        case("sciccors"): return `Congratulations, you won! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}!`;
+                        case("paper"):  
+                                        computerScore += 1;
+                                        console.log(`You lost.. ${computerSelection} beats ${playerSelection}.`);                                       
+                                        break;
+                        case("sciccors"):
+                                        playerScore += 1; 
+                                        console.log(`Congratulations, you won! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}!`);                                        
                                         break;
                     }
                 }
                 if (playerSelection == "paper") {
                     switch (computerSelection) {
-                        case("sciccors"): return `You lost.. ${computerSelection} beats ${playerSelection}.`;
-                                     break;
-                        case("rock"): return `Congratulations, you won! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}!`;
+                        case("sciccors"): 
+                                        computerScore += 1;
+                                        console.log(`You lost.. ${computerSelection} beats ${playerSelection}.`);    
+                                        break;
+                        case("rock"): 
+                                        playerScore += 1;
+                                        console.log(`Congratulations, you won! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}!`);
                                         break;
                     }
                 }
                 if (playerSelection == "sciccors") {
                     switch (computerSelection) {
-                        case("rock"): return `You lost.. ${computerSelection} beats ${playerSelection}.`;
-                                     break;
-                        case("Ppaper"): return `Congratulations, you won! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}!`;
+                        case("rock"): 
+                                        computerScore += 1;
+                                        console.log(`You lost.. ${computerSelection} beats ${playerSelection}.`);    
+                                        break;
+                        case("paper"): 
+                                        playerScore += 1;
+                                        console.log(`Congratulations, you won! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}!`);
                                         break;
                     }
                 }
             }
+            function playerSelector() {
+                playerSelection = window.prompt("Input your choice").toLowerCase()
+                while (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "sciccors") {
+                    playerSelection = window.prompt(`"${playerSelection}" is not a valid input. Please input rock, paper or sciccors`).toLowerCase();
+                }
+            }
+            function game() {
+                playerScore = 0;
+                computerScore = 0;
+                computerPlay();
+                playerSelector();
+                console.log(playerSelection)
+                console.log(computerSelection)
+                playRound(playerSelection, computerSelection);
+                console.log(playerScore)
+                console.log(computerScore)
+                computerPlay();
+                playerSelector();
+                console.log(playerSelection)
+                console.log(computerSelection)
+                playRound(playerSelection, computerSelection);
+                console.log(playerScore)
+                console.log(computerScore)
+                computerPlay();
+                playerSelector();
+                console.log(playerSelection)
+                console.log(computerSelection)
+                playRound(playerSelection, computerSelection);
+                console.log(playerScore)
+                console.log(computerScore)
+                computerPlay();
+                playerSelector();
+                console.log(playerSelection)
+                console.log(computerSelection)
+                playRound(playerSelection, computerSelection);
+                console.log(playerScore)
+                console.log(computerScore)
+                computerPlay();
+                playerSelector();
+                console.log(playerSelection)
+                console.log(computerSelection)
+                playRound(playerSelection, computerSelection);
+                console.log(playerScore)
+                console.log(computerScore)
+                if (playerScore == computerScore) {
+                    console.log(`There is no winner, it's a draw. You both have ${playerScore} points.`)
+                }
+                return (playerScore > computerScore) ? console.log(`You won! the score was ${playerScore} : ${computerScore}.`) : console.log(`You lost.. The score was ${playerScore} : ${computerScore}.`)
+            }
+            game();
         </script>
     </body>
 </html>
