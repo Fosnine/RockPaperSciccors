@@ -108,6 +108,7 @@
                 console.log(computerScore)
                 if (playerScore == computerScore) {
                     console.log(`There is no winner, it's a draw. You both have ${playerScore} points.`)
+                    return;
                 }
                 return (playerScore > computerScore) ? console.log(`You won! the score was ${playerScore} : ${computerScore}.`) : console.log(`You lost.. The score was ${playerScore} : ${computerScore}.`)
             }
