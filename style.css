@@ -78,19 +78,19 @@ button:active {
     box-shadow: 0 0 black   ;
 }
 #rock {
-    background-image: url(Rock.png);
+    background-image: url(../Rock.png);
     background-size: 200px 200px;
     width: 200px;
     height: 200px;
 }
 #paper {
-    background-image: url(Paper.png);
+    background-image: url(../Paper.png);
     background-size: 200px 200px;
     width: 200px;
     height: 200px;
 }
 #sciccors {
-    background-image: url(Sciccors.png);
+    background-image: url(../Sciccors.png);
     background-size: 200px 200px;
     width: 200px;
     height: 200px;
